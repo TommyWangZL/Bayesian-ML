@@ -1,4 +1,4 @@
 # Bayesian-ML
 
-![plot](./directory_1/directory_2/.../directory_n/plot.png)
+![plot](/Users/liuyueyang/Desktop/Screenshot\ 2025-03-09\ at\ 12.37.53.png)
 vvvv

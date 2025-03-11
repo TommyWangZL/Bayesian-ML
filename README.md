@@ -36,8 +36,8 @@ To ensure that numerical features contributed equally to the model, we applied s
 ## Model
 #### Linear regression model 
 ##### Description: 
-Parameters: Uses standard OLS (Ordinary Least Squares) estimation
-Common Use Cases: Baseline predictive model for interest rate prediction in loan analysis, widely used for its simplicity and interpretability
+- Parameters: Uses standard OLS (Ordinary Least Squares) estimation
+- Common Use Cases: Baseline predictive model for interest rate prediction in loan analysis, widely used for its simplicity and interpretability
 ##### Formula: y = β₀ + β₁x₁ + β₂x₂ + ... + βₚxₚ + ε
 ##### Results
 * Test MSE: 10.4491
@@ -45,21 +45,33 @@ Common Use Cases: Baseline predictive model for interest rate prediction in loan
 * Test MAE: 2.5867
 * Test RMSE: 3.2325
 
-
+<img width="606" alt="Image" src="https://github.com/user-attachments/assets/602dbaac-d9b6-4aaa-8815-b8a1ed0dbb30" />
 
 <img width="663" alt="Image" src="https://github.com/user-attachments/assets/78b69db4-ce8f-41c1-b741-03dbcf8db309" />
 
 #### Bayesian linear regression model  
 ##### Description:
-Parameters: Incorporates prior distributions for model parameters, combines prior knowledge with observed data
-Common Use Cases: Credit risk modeling where uncertainty quantification is important
+- Parameters: Incorporates prior distributions for model parameters, combines prior knowledge with observed data
+- Common Use Cases: Credit risk modeling where uncertainty quantification is important
 ##### Formula: P(β|X,y) ∝ P(y|X,β) × P(β)
-##### Results
-- Test MSE: 11.4481
-- Test R²: 0.4093
-- Test MAE: 2.7086
-- Test RMSE: 3.3836
-- Feature Importance: Number_of_Payments (0.42), Revolving_Utilization_Rate (0.41), Credit_Inquiries_6M (0.23)
+##### Results:
+*  Test MSE: 11.4481
+* Test R²: 0.4093
+*  Test MAE: 2.7086
+* Test RMSE: 3.3836
+*  Feature Importance: Number_of_Payments (0.42), Revolving_Utilization_Rate (0.41), Credit_Inquiries_6M (0.23)
+
+#### Dirichlet multinomial regression model  
+##### Description:
+Parameters: Regularization parameter α (tested with values 0.1, 0.5, 1.0, 2.0, 5.0)
+Common Use Cases: Modeling with sparse features, preventing overfitting in credit scoring
+Formula: Similar to linear regression but with Dirichlet prior distributions on the coefficients
+##### Results: 
+* Best performance with α = 5.0
+* Test RMSE: 3.2325
+* Test R²: 0.4609
+* Test MAE: 2.5867
+* Key Features: Number_of_Payments, Revolving_Utilization_Rate, Credit_Inquiries_6M
 
 
 

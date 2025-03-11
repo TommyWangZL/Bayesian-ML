@@ -159,7 +159,8 @@ P(β|X, y) ∝ P(y|X, β) × P(β) × P(θ)
 - The model effectively captures structured relationships within borrower and loan features  
 - The presence of residual patterns suggests that incorporating nonlinear relationships could improve performance  
 - Potential improvements include refining hyperparameters, testing alternative priors, and integrating external economic indicators such as macroeconomic trends or credit risk scores  
-
+  <img width="545" alt="Image" src="https://github.com/user-attachments/assets/ce7dcf7e-3664-4f56-b9fc-a259797c6cfc" />
+  <img width="545" alt="Image" src="https://github.com/user-attachments/assets/1f8c72aa-1859-439b-b93e-aa18dad05162" />
 
 
 

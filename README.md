@@ -73,6 +73,42 @@ Given that a borrower requests a high loan amount, has 36 payment terms (longer)
 * Test RMSE: 3.3836
 *  Feature Importance: Number_of_Payments (0.42), Revolving_Utilization_Rate (0.41), Credit_Inquiries_6M (0.23)
 
+#### Random Forest Model  
+##### Description:  
+Parameters: Uses an ensemble of decision trees with bootstrap aggregation (bagging) to improve predictive accuracy and reduce overfitting  
+Common Use Cases: Loan interest rate prediction, credit risk assessment, and financial forecasting where non-linearity and interactions between features are important  
+##### Formula:  
+f(x) = (1/T) ∑ fᵢ(x)  
+(where fᵢ(x) represents individual decision trees and T is the total number of trees in the forest)  
+##### Results:  
+- Test MSE: 9.0811  
+- Test RMSE: 3.0135  
+- Test MAE: 2.3690  
+- Test R²: 0.5245  
+##### Interpretation:  
+- The model captures complex relationships between borrower attributes and interest rates, outperforming linear models in predictive accuracy  
+- The relatively high R² score indicates that the model explains a significant portion of the variance in loan interest rates  
+- Feature importance analysis can provide insights into which borrower characteristics most influence interest rates  
+- Further improvements can be made by fine-tuning hyperparameters, increasing tree depth, or incorporating additional economic indicators for better predictions  
+
+#### XGBoost Model  
+##### Description:  
+Parameters: Utilizes gradient boosting with decision trees, optimizing through weighted residual corrections to minimize loss functions  
+Common Use Cases: Loan interest rate prediction, credit risk scoring, and financial modeling where handling non-linearity and feature interactions is critical  
+##### Formula:  
+f(x) = ∑(t=1 to T) η hᵢ(x)  
+(where hᵢ(x) represents weak learners, T is the number of boosting rounds, and η is the learning rate)  
+##### Results:  
+- Test MSE: 8.5098  
+- Test RMSE: 2.9171  
+- Test MAE: 2.2930  
+- Test R²: 0.5544  
+##### Interpretation:  
+- The model demonstrates strong predictive performance, outperforming Random Forest and Linear Regression by capturing complex relationships in the data  
+- The high R² score suggests that the model explains a significant portion of the variance in loan interest rates  
+- The feature importance plot provides insights into which borrower and loan characteristics most impact interest rates  
+- Future enhancements include hyperparameter tuning, testing alternative boosting strategies, and integrating external macroeconomic indicators for even more precise predictions  
+
 #### Dirichlet multinomial regression model  
 ##### Description:
 Parameters: Regularization parameter α (tested with values 0.1, 0.5, 1.0, 2.0, 5.0)

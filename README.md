@@ -183,6 +183,16 @@ In this study, we explored multiple predictive modeling approaches to estimate l
 - **Linear models remain strong contenders for credit risk assessment**, as their simplicity and interpretability make them practical choices for real-world applications.
 - Further improvements could be made by incorporating **macroeconomic indicators, credit score distributions, or alternative prior assumptions** into the Bayesian framework.
 
+### Model Comparison
+|     | LR    | Bayesian LR | Dirichlet-regularized models with alpha = 5.0 | RF     | XGBOOST | MCMC   | Hierarchical Bayesian Model | MAP   |
+|-----|-------|------------|-----------------------------------------------|--------|---------|--------|-----------------------------|-------|
+| RMSE | 3.2312 | 3.3836     | 3.2325                                      | 3.0135 | 2.9171  | 5.2968 | 6.4487                      | 1.7492 |
+| MAE  | 2.5867 | 2.7086     | 2.5867                                      | 2.3690 | 2.2930  | 4.2636 | 5.7300                      | 1.3990 | <br>
+
+The MAP model is the most effective, achieving the lowest prediction errors. Traditional linear regression and Dirichlet-regularized models offer decent performance, while Bayesian Linear Regression slightly underperforms. RF/XGBoost and MCMC models have significantly higher errors, making them less suitable for this task. Hierarchical Bayesian Model performs the worst, suggesting that its complexity does not contribute to improved accuracy. <br>
+MAP performs best because it balances data likelihood with prior knowledge, preventing overfitting and improving generalization. Its Bayesian regularization reduces the impact of noise and outliers, making predictions more stable. By optimizing for the most probable parameters, it captures data patterns effectively while maintaining a balance between bias and variance, leading to superior accuracy.
+
+
 ### Final Recommendation
 For **accurate, scalable, and interpretable** interest rate prediction, we recommend using **MAP Bayesian Ridge Regression**. It provides the **best trade-off between accuracy, uncertainty quantification, and computational efficiency**. Future work could explore **hybrid Bayesian-ensemble methods** or **deep probabilistic modeling** to refine predictions further.
 

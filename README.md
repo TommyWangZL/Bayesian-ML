@@ -46,12 +46,12 @@ Given that a borrower requests a high loan amount, has 36 payment terms (longer)
 ![Image](https://github.com/user-attachments/assets/dd14d13c-f99f-4003-9d70-50af24930ba5)
 
 ## Model
-#### Linear regression model 
-##### Description: 
+### Linear regression model 
+#### Description: 
 - Parameters: Uses standard OLS (Ordinary Least Squares) estimation
 - Common Use Cases: Baseline predictive model for interest rate prediction in loan analysis, widely used for its simplicity and interpretability
-##### Formula: y = β₀ + β₁x₁ + β₂x₂ + ... + βₚxₚ + ε
-##### Results
+#### Formula: y = β₀ + β₁x₁ + β₂x₂ + ... + βₚxₚ + ε
+#### Results
 * Test MSE: 10.4491
 * Test R²: 0.4609
 * Test MAE: 2.5867
@@ -61,12 +61,12 @@ Given that a borrower requests a high loan amount, has 36 payment terms (longer)
 
 <img width="663" alt="Image" src="https://github.com/user-attachments/assets/78b69db4-ce8f-41c1-b741-03dbcf8db309" />
 
-#### Bayesian linear regression model  
-##### Description:
+### Bayesian linear regression model  
+#### Description:
 - Parameters: Incorporates prior distributions for model parameters, combines prior knowledge with observed data
 - Common Use Cases: Credit risk modeling where uncertainty quantification is important
-##### Formula: P(β|X,y) ∝ P(y|X,β) × P(β)
-##### Results:
+#### Formula: P(β|X,y) ∝ P(y|X,β) × P(β)
+#### Results:
 *  Test MSE: 11.4481
 * Test R²: 0.4093
 *  Test MAE: 2.7086
@@ -74,43 +74,25 @@ Given that a borrower requests a high loan amount, has 36 payment terms (longer)
 *  Feature Importance: Number_of_Payments (0.42), Revolving_Utilization_Rate (0.41), Credit_Inquiries_6M (0.23)
   
 
-#### Dirichlet multinomial regression model  
-##### Description:
+### Dirichlet multinomial regression model  
+#### Description:
 Parameters: Regularization parameter α (tested with values 0.1, 0.5, 1.0, 2.0, 5.0)
 Common Use Cases: Modeling with sparse features, preventing overfitting in credit scoring
 Formula: Similar to linear regression but with Dirichlet prior distributions on the coefficients
-##### Results: 
+#### Results: 
 * Best performance with α = 5.0
 * Test RMSE: 3.2325
 * Test R²: 0.4609
 * Test MAE: 2.5867
 * Key Features: Number_of_Payments, Revolving_Utilization_Rate, Credit_Inquiries_6M
 
-#### MCMC Model
-##### Description:
-The Bayesian linear regression model implemented in PyMC uses Markov Chain Monte Carlo (MCMC) sampling to estimate the relationship between predictor variables and the target variable (interest rate). The model assumes a probabilistic framework where parameters are treated as distributions rather than fixed values.
-##### Formula: 
-<img width="212" alt="Image" src="https://github.com/user-attachments/assets/233f524a-bf59-4009-a4dc-075a21426172" />  <br>
+### Maximum A Posteriori (MAP) Bayesian Ridge Regression
 
-
-<img width="624" alt="Image" src="https://github.com/user-attachments/assets/bcfd5088-9572-4dd5-a53d-14fd394ad3be" />
-
-##### Results:
-* Intercept (α): 2458
-* Regression Coefficients (β): 2137 to 3304
-* Standard Deviation (σ): 3965
-* Effective Sample Size (ESS): Sufficient for reliable estimates.
-* Gelman-Rubin Statistic: Close to 1.000 for all parameters, confirming chain convergence.
-* The model’s predicted values closely match the observed data, indicating a good fit and reliable uncertainty quantification.
-
-
-## Maximum A Posteriori (MAP) Bayesian Ridge Regression
-
-### Description
+#### Description
 - **Parameters**: Uses Bayesian priors for regression coefficients, incorporating prior knowledge into parameter estimation.
 - **Common Use Cases**: Applied in credit risk modeling and loan interest rate prediction where uncertainty quantification is crucial.
 
-### Formula
+#### Formula
 - **Formula**:
   ```math
   y = X\beta + \epsilon
@@ -125,7 +107,7 @@ The Bayesian linear regression model implemented in PyMC uses Markov Chain Monte
     \beta \sim N(0, 10), \quad \sigma \sim HalfNormal(1)
     ```
 
-### Results
+#### Results
 ```plaintext
 Root Mean Squared Error (RMSE): 1.7492
 Mean Absolute Error (MAE): 1.3987
@@ -133,7 +115,7 @@ Mean Squared Error (MSE): 3.0598
 R² Score (Predictive Accuracy): 0.8421
 ```
 
-### Interpretation
+#### Interpretation
 - The **high predictive accuracy (R² = 0.8421)** suggests that the model effectively captures interest rate trends.
 - The **lower RMSE and MAE values** indicate better error performance compared to previous runs.
 - **Feature selection ensured model simplicity and interpretability**, but further improvements could involve testing hierarchical Bayesian priors or incorporating external economic indicators.
@@ -141,28 +123,54 @@ R² Score (Predictive Accuracy): 0.8421
   <img width="545" alt="Image" src="https://github.com/user-attachments/assets/2d92891f-a359-42e9-84c7-418d58b45c5e" />
 
 
-#### Hierarchical Bayesian Model  
-##### Description:  
+### Hierarchical Bayesian Model  
+#### Description:  
 Parameters: Uses hierarchical priors to model dependencies within categorical variables and normal priors for numerical predictors  
 Common Use Cases: Loan risk assessment, interest rate prediction, and modeling structured dependencies in financial data  
 
-##### Formula:  
+#### Formula:  
 P(β|X, y) ∝ P(y|X, β) × P(β) × P(θ)  
 (where P(θ) represents hierarchical priors for categorical variables)  
 
-##### Results:  
+#### Results:  
 - Test MSE: 41.5861  
 - Test R²: Not explicitly provided  
 - Test MAE: 5.7300  
 - Test RMSE: 6.4487  
 
-##### Interpretation:  
+#### Interpretation:  
 - The model effectively captures structured relationships within borrower and loan features  
 - The presence of residual patterns suggests that incorporating nonlinear relationships could improve performance  
 - Potential improvements include refining hyperparameters, testing alternative priors, and integrating external economic indicators such as macroeconomic trends or credit risk scores  
   <img width="545" alt="Image" src="https://github.com/user-attachments/assets/ce7dcf7e-3664-4f56-b9fc-a259797c6cfc" />
   <img width="545" alt="Image" src="https://github.com/user-attachments/assets/1f8c72aa-1859-439b-b93e-aa18dad05162" />
 
+### MCMC Model
+#### Description:
+The Bayesian linear regression model implemented in PyMC uses Markov Chain Monte Carlo (MCMC) sampling to estimate the relationship between predictor variables and the target variable (interest rate). The model assumes a probabilistic framework where parameters are treated as distributions rather than fixed values.
+#### Formula: 
+<img width="212" alt="Image" src="https://github.com/user-attachments/assets/233f524a-bf59-4009-a4dc-075a21426172" />  <br>
+
+
+<img width="624" alt="Image" src="https://github.com/user-attachments/assets/bcfd5088-9572-4dd5-a53d-14fd394ad3be" />
+
+#### Results:
+* Intercept (α): 2458
+* Regression Coefficients (β): 2137 to 3304
+* Standard Deviation (σ): 3965
+* Effective Sample Size (ESS): Sufficient for reliable estimates.
+* Gelman-Rubin Statistic: Close to 1.000 for all parameters, confirming chain convergence.
+* The model’s predicted values closely match the observed data, indicating a good fit and reliable uncertainty quantification.
+
+
+## Model Comparison
+|     | LR    | Bayesian LR | Dirichlet-regularized models with alpha = 5.0 | RF     | XGBOOST | MCMC   | Hierarchical Bayesian Model | MAP   |
+|-----|-------|------------|-----------------------------------------------|--------|---------|--------|-----------------------------|-------|
+| RMSE | 3.2312 | 3.3836     | 3.2325                                      | 3.0135 | 2.9171  | 5.2968 | 6.4487                      | 1.7492 |
+| MAE  | 2.5867 | 2.7086     | 2.5867                                      | 2.3690 | 2.2930  | 4.2636 | 5.7300                      | 1.3990 | <br>
+
+The MAP model is the most effective, achieving the lowest prediction errors. Traditional linear regression and Dirichlet-regularized models offer decent performance, while Bayesian Linear Regression slightly underperforms. RF/XGBoost and MCMC models have significantly higher errors, making them less suitable for this task. Hierarchical Bayesian Model performs the worst, suggesting that its complexity does not contribute to improved accuracy. <br>
+MAP performs best because it balances data likelihood with prior knowledge, preventing overfitting and improving generalization. Its Bayesian regularization reduces the impact of noise and outliers, making predictions more stable. By optimizing for the most probable parameters, it captures data patterns effectively while maintaining a balance between bias and variance, leading to superior accuracy.
 
 
 ## Conclusion
@@ -182,16 +190,6 @@ In this study, we explored multiple predictive modeling approaches to estimate l
 - **Hierarchical Bayesian models may require more refined priors and segment-based tuning** to handle borrower heterogeneity effectively.
 - **Linear models remain strong contenders for credit risk assessment**, as their simplicity and interpretability make them practical choices for real-world applications.
 - Further improvements could be made by incorporating **macroeconomic indicators, credit score distributions, or alternative prior assumptions** into the Bayesian framework.
-
-### Model Comparison
-|     | LR    | Bayesian LR | Dirichlet-regularized models with alpha = 5.0 | RF     | XGBOOST | MCMC   | Hierarchical Bayesian Model | MAP   |
-|-----|-------|------------|-----------------------------------------------|--------|---------|--------|-----------------------------|-------|
-| RMSE | 3.2312 | 3.3836     | 3.2325                                      | 3.0135 | 2.9171  | 5.2968 | 6.4487                      | 1.7492 |
-| MAE  | 2.5867 | 2.7086     | 2.5867                                      | 2.3690 | 2.2930  | 4.2636 | 5.7300                      | 1.3990 | <br>
-
-The MAP model is the most effective, achieving the lowest prediction errors. Traditional linear regression and Dirichlet-regularized models offer decent performance, while Bayesian Linear Regression slightly underperforms. RF/XGBoost and MCMC models have significantly higher errors, making them less suitable for this task. Hierarchical Bayesian Model performs the worst, suggesting that its complexity does not contribute to improved accuracy. <br>
-MAP performs best because it balances data likelihood with prior knowledge, preventing overfitting and improving generalization. Its Bayesian regularization reduces the impact of noise and outliers, making predictions more stable. By optimizing for the most probable parameters, it captures data patterns effectively while maintaining a balance between bias and variance, leading to superior accuracy.
-
 
 ### Final Recommendation
 For **accurate, scalable, and interpretable** interest rate prediction, we recommend using **MAP Bayesian Ridge Regression**. It provides the **best trade-off between accuracy, uncertainty quantification, and computational efficiency**. Future work could explore **hybrid Bayesian-ensemble methods** or **deep probabilistic modeling** to refine predictions further.

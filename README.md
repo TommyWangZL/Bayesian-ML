@@ -137,6 +137,8 @@ R² Score (Predictive Accuracy): 0.8421
 - The **lower RMSE and MAE values** indicate better error performance compared to previous runs.
 - **Feature selection ensured model simplicity and interpretability**, but further improvements could involve testing hierarchical Bayesian priors or incorporating external economic indicators.
 
+  <img width="545" alt="Image" src="https://github.com/user-attachments/assets/2d92891f-a359-42e9-84c7-418d58b45c5e" />
+
 
 
 

@@ -1,5 +1,4 @@
 # Bayesian-ML
-https://github.com/LunaLiu-world/Bayesian-ML/issues/2#issue-2908799525
 
 ## Business statement
 Lending platforms connect borrowers seeking loans with investors willing to fund these loans, making the accurate prediction of interest rates crucial for both parties. Borrowers need fair rates that reflect their risk profile, while investors require appropriate returns to compensate for the risk they assume. The platform itself needs accurate interest rate models to maintain profitability, competitiveness, and regulatory compliance. In this project, we analyze lending data containing various borrower characteristics, loan attributes, and credit history metrics to build models that can accurately predict interest rates. Such predictions help lending platforms maintain a balanced marketplace where risk is appropriately priced, leading to sustainable business operations and customer satisfaction.
@@ -46,7 +45,7 @@ Common Use Cases: Baseline predictive model for interest rate prediction in loan
 * Test MAE: 2.5867
 * Test RMSE: 3.2325
 
-<img width="563" alt="Image" src="https://github.com/user-attachments/assets/a74fff5d-a3c1-458f-82c7-93787b0b70c4" />
+
 
 <img width="663" alt="Image" src="https://github.com/user-attachments/assets/78b69db4-ce8f-41c1-b741-03dbcf8db309" />
 

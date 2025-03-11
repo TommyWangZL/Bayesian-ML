@@ -34,9 +34,16 @@ To ensure that numerical features contributed equally to the model, we applied s
 
 ## Bayesian Network Analysis
 Our analysis of loan data using Bayesian Networks reveals key relationships that impact loan decisions. First, continuous variables are discretized into categorical bins to make them suitable for discrete Bayesian networks. Most variables are converted to binary "Low"/"High" categories using median splits, and interest rates are divided into three categories: "Low", "Medium", and "High". I implement the Hill Climb Search algorithm and the tree search algorithm to learn the Bayesian network. The network is visualized and conditional probability distributions (CPDs) are calculated for each node. BIC scores are calculated for both models. The tree model achieved a better BIC score than the hill climbing model. The Hill Climb model shows more complex relationships with more connections, while the Tree model has a simpler hierarchical structure.
-
-
-
+![Image](https://github.com/user-attachments/assets/710667b3-979e-4298-be7b-a3ddd074e6f8)
+![Image](https://github.com/user-attachments/assets/27d06ce3-eb53-4ec1-949f-33c1d03d0938)
+Key Finding Examples:
+We could get insights from CPDs or perform queries to estimate conditional probabilities:
+Larger loan amounts are much more likely to have longer payment terms.
+![Image](https://github.com/user-attachments/assets/549004b8-b439-48fd-998e-7dfaf24270a2)
+Longer payment terms are strongly associated with higher interest rates.
+![Image](https://github.com/user-attachments/assets/b0edc451-90e1-4938-a8be-45e7fb0f6e14)
+Given that a borrower requests a high loan amount, has 36 payment terms (longer), and a low annual income, there's a 65.22% probability they'll be offered a high interest rate. A significantly smaller probability (24.64%) for medium interest rate.Very low likelihood (10.14%) of receiving a low-interest rate, clearly indicating a riskier borrower profile.
+![Image](https://github.com/user-attachments/assets/dd14d13c-f99f-4003-9d70-50af24930ba5)
 
 ## Model
 #### Linear regression model 

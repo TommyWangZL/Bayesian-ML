@@ -103,39 +103,25 @@ The Bayesian linear regression model implemented in PyMC uses Markov Chain Monte
 * The model’s predicted values closely match the observed data, indicating a good fit and reliable uncertainty quantification.
 
 
-## Maximum A Posteriori (MAP) Bayesian Ridge Regression
+#### Hierarchical Bayesian Model  
+##### Description:  
+Parameters: Uses hierarchical priors to model dependencies within categorical variables and normal priors for numerical predictors  
+Common Use Cases: Loan risk assessment, interest rate prediction, and modeling structured dependencies in financial data  
 
-### Description
-- **Parameters**: Uses Bayesian priors for regression coefficients, incorporating prior knowledge into parameter estimation.
-- **Common Use Cases**: Applied in credit risk modeling and loan interest rate prediction where uncertainty quantification is crucial.
+##### Formula:  
+P(β|X, y) ∝ P(y|X, β) × P(β) × P(θ)  
+(where P(θ) represents hierarchical priors for categorical variables)  
 
-### Formula
-- **Formula**:
-  ```math
-  y = X\beta + \epsilon
-  ```
-  where:
-  - \( y \) is the predicted interest rate,
-  - \( X \) is the feature matrix,
-  - \( \beta \) is the regression coefficient vector,
-  - \( \epsilon \sim N(0, \sigma^2) \) is the error term.
-  - **Priors**:
-    ```math
-    \beta \sim N(0, 10), \quad \sigma \sim HalfNormal(1)
-    ```
+##### Results:  
+- Test MSE: 41.5861  
+- Test R²: Not explicitly provided  
+- Test MAE: 5.7300  
+- Test RMSE: 6.4487  
 
-### Results
-```plaintext
-Root Mean Squared Error (RMSE): 1.7492
-Mean Absolute Error (MAE): 1.3987
-Mean Squared Error (MSE): 3.0598
-R² Score (Predictive Accuracy): 0.8421
-```
-
-### Interpretation
-- The **high predictive accuracy (R² = 0.8421)** suggests that the model effectively captures interest rate trends.
-- The **lower RMSE and MAE values** indicate better error performance compared to previous runs.
-- **Feature selection ensured model simplicity and interpretability**, but further improvements could involve testing hierarchical Bayesian priors or incorporating external economic indicators.
+##### Interpretation:  
+- The model effectively captures structured relationships within borrower and loan features  
+- The presence of residual patterns suggests that incorporating nonlinear relationships could improve performance  
+- Potential improvements include refining hyperparameters, testing alternative priors, and integrating external economic indicators such as macroeconomic trends or credit risk scores  
 
 
 

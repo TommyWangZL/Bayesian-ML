@@ -31,6 +31,21 @@ Loan to Income Ratio: By dividing the loan amount by the borrower's annual incom
 Active Credit Line Ratio: This ratio measures the number of active credit lines relative to total credit lines, providing insight into credit utilization and financial responsibility.
 3) Standardization
 To ensure that numerical features contributed equally to the model, we applied standardization using StandardScaler. This transformation helps prevent features with larger magnitudes from dominating the learning process. We standardized all continuous numerical features while excluding categorical variables and the target variable (X1).
+<img width="610" alt="Image" src="https://github.com/user-attachments/assets/33c6b615-89d9-4524-b95f-d3334e31cd58" />
+
+
+## Model
+#### Linear regression model 
+##### Description: 
+Parameters: Uses standard OLS (Ordinary Least Squares) estimation
+Common Use Cases: Baseline predictive model for interest rate prediction in loan analysis, widely used for its simplicity and interpretability
+##### Formula: y = β₀ + β₁x₁ + β₂x₂ + ... + βₚxₚ + ε
+##### Results
+Test MSE: 10.4491
+Test R²: 0.4609
+Test MAE: 2.5867
+Test RMSE: 3.2325
+
 
 
 

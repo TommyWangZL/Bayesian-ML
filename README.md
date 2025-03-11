@@ -163,6 +163,26 @@ P(β|X, y) ∝ P(y|X, β) × P(β) × P(θ)
 
 
 
+## Conclusion
+
+In this study, we explored multiple predictive modeling approaches to estimate loan interest rates, with a focus on Bayesian methods and hierarchical modeling techniques. Our analysis incorporated **Maximum A Posteriori (MAP) Bayesian Ridge Regression**, **Bayesian Linear Regression**, **Hierarchical Bayesian Models**, and **Markov Chain Monte Carlo (MCMC)-based Bayesian inference**, alongside traditional models like **Linear Regression** and **Dirichlet-regularized regression**.
+
+### Key Findings
+- **MAP Bayesian Ridge Regression performed the best**, achieving the lowest **RMSE (1.7492)** and highest **R² Score (0.8421)**, indicating strong predictive accuracy and model efficiency.
+- **Traditional Linear Regression and Dirichlet-regularized models (α = 5.0) offered stable performance**, with RMSE values around **3.23**, making them competitive baseline models.
+- **Bayesian Linear Regression underperformed slightly**, with **higher error metrics** than MAP Bayesian Ridge, likely due to less optimal posterior regularization.
+- **Hierarchical Bayesian Models struggled**, as their added complexity did not significantly improve predictive accuracy, leading to the highest RMSE (**6.4487**).
+- **MCMC-based Bayesian regression models exhibited high uncertainty**, showing **higher error margins** than other approaches.
+- **Random Forest and XGBoost were not ideal for this problem**, suggesting that tree-based methods may not generalize well in modeling interest rate predictions.
+
+### Implications
+- The **MAP Bayesian Ridge model** effectively balances **regularization and parameter uncertainty**, making it an **optimal choice for financial risk prediction**.
+- **Hierarchical Bayesian models may require more refined priors and segment-based tuning** to handle borrower heterogeneity effectively.
+- **Linear models remain strong contenders for credit risk assessment**, as their simplicity and interpretability make them practical choices for real-world applications.
+- Further improvements could be made by incorporating **macroeconomic indicators, credit score distributions, or alternative prior assumptions** into the Bayesian framework.
+
+### Final Recommendation
+For **accurate, scalable, and interpretable** interest rate prediction, we recommend using **MAP Bayesian Ridge Regression**. It provides the **best trade-off between accuracy, uncertainty quantification, and computational efficiency**. Future work could explore **hybrid Bayesian-ensemble methods** or **deep probabilistic modeling** to refine predictions further.
 
 
 

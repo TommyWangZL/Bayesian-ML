@@ -103,6 +103,40 @@ The Bayesian linear regression model implemented in PyMC uses Markov Chain Monte
 * The model’s predicted values closely match the observed data, indicating a good fit and reliable uncertainty quantification.
 
 
+## Maximum A Posteriori (MAP) Bayesian Ridge Regression
+
+### Description
+- **Parameters**: Uses Bayesian priors for regression coefficients, incorporating prior knowledge into parameter estimation.
+- **Common Use Cases**: Applied in credit risk modeling and loan interest rate prediction where uncertainty quantification is crucial.
+
+### Formula
+- **Formula**:
+  ```math
+  y = X\beta + \epsilon
+  ```
+  where:
+  - \( y \) is the predicted interest rate,
+  - \( X \) is the feature matrix,
+  - \( \beta \) is the regression coefficient vector,
+  - \( \epsilon \sim N(0, \sigma^2) \) is the error term.
+  - **Priors**:
+    ```math
+    \beta \sim N(0, 10), \quad \sigma \sim HalfNormal(1)
+    ```
+
+### Results
+```plaintext
+Root Mean Squared Error (RMSE): 1.7492
+Mean Absolute Error (MAE): 1.3987
+Mean Squared Error (MSE): 3.0598
+R² Score (Predictive Accuracy): 0.8421
+```
+
+### Interpretation
+- The **high predictive accuracy (R² = 0.8421)** suggests that the model effectively captures interest rate trends.
+- The **lower RMSE and MAE values** indicate better error performance compared to previous runs.
+- **Feature selection ensured model simplicity and interpretability**, but further improvements could involve testing hierarchical Bayesian priors or incorporating external economic indicators.
+
 
 
 

@@ -85,6 +85,12 @@ Formula: Similar to linear regression but with Dirichlet prior distributions on 
 * Test MAE: 2.5867
 * Key Features: Number_of_Payments, Revolving_Utilization_Rate, Credit_Inquiries_6M
 
+#### MCMC Model
+##### Description:
+The Bayesian linear regression model implemented in PyMC uses Markov Chain Monte Carlo (MCMC) sampling to estimate the relationship between predictor variables and the target variable (interest rate). The model assumes a probabilistic framework where parameters are treated as distributions rather than fixed values.
+##### Formula: 
+
+
 
 
 

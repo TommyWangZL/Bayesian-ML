@@ -58,7 +58,7 @@ Given that a borrower requests a high loan amount, has 36 payment terms (longer)
 ![Image](https://github.com/user-attachments/assets/dd14d13c-f99f-4003-9d70-50af24930ba5)
 
 ## Model
-### Linear regression model 
+### Linear regression model (baseline model)
 #### Description: 
 - Parameters: Uses standard OLS (Ordinary Least Squares) estimation
 - Common Use Cases: Baseline predictive model for interest rate prediction in loan analysis, widely used for its simplicity and interpretability

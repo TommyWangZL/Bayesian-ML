@@ -1,4 +1,4 @@
-# Bayesian-ML
+# Loan Interest Rate Prediction
 
 ## 1. Business statement
 Lending platforms connect borrowers seeking loans with investors willing to fund these loans, making the accurate prediction of interest rates crucial for both parties. Borrowers need fair rates that reflect their risk profile, while investors require appropriate returns to compensate for the risk they assume. The platform itself needs accurate interest rate models to maintain profitability, competitiveness, and regulatory compliance. In this project, we analyze lending data containing various borrower characteristics, loan attributes, and credit history metrics to build models that can accurately predict interest rates. Such predictions help lending platforms maintain a balanced marketplace where risk is appropriately priced, leading to sustainable business operations and customer satisfaction.
@@ -57,7 +57,7 @@ Longer payment terms are strongly associated with higher interest rates.
 Given that a borrower requests a high loan amount, has 36 payment terms (longer), and a low annual income, there's a 65.22% probability they'll be offered a high interest rate. A significantly smaller probability (24.64%) for medium interest rate.Very low likelihood (10.14%) of receiving a low-interest rate, clearly indicating a riskier borrower profile.
 ![Image](https://github.com/user-attachments/assets/dd14d13c-f99f-4003-9d70-50af24930ba5)
 
-## 7. Model
+## 7. Prediction Models
 ### 7.1 Linear regression model (baseline model)
 #### Description: 
 - Parameters: Uses standard OLS (Ordinary Least Squares) estimation

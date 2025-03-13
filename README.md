@@ -62,6 +62,11 @@ Given that a borrower requests a high loan amount, has 36 payment terms (longer)
 #### Description: 
 - Parameters: Uses standard OLS (Ordinary Least Squares) estimation
 - Common Use Cases: Baseline predictive model for interest rate prediction in loan analysis, widely used for its simplicity and interpretability
+- Advantage: Give us a straightforward mathematical relationship between our predictor variables and interest rates & solid benchmark for comparison.
+- While not capturing all the complexity in our data, it offers good interpretability with clear coefficients showing each feature's impact on interest rates.
+
+
+
 #### Formula: y = β₀ + β₁x₁ + β₂x₂ + ... + βₚxₚ + ε
 #### Results
 * Test MSE: 10.4491
@@ -73,10 +78,13 @@ Given that a borrower requests a high loan amount, has 36 payment terms (longer)
 
 <img width="663" alt="Image" src="https://github.com/user-attachments/assets/78b69db4-ce8f-41c1-b741-03dbcf8db309" />
 
-### Bayesian linear regression model  
+### Bayesian linear regression model (more probabilistic approach7e64b4acba38)
 #### Description:
-- Parameters: Incorporates prior distributions for model parameters, combines prior knowledge with observed data
+- Parameters: Incorporates prior distributions for model parameters, allowing us to quantify uncertainty in our predictions.
 - Common Use Cases: Credit risk modeling where uncertainty quantification is important
+- Drawback in this project: delivered slightly higher error metrics.
+- Advantage: Providing full posterior distributions rather than point estimates.
+  
 #### Formula: P(β|X,y) ∝ P(y|X,β) × P(β)
 #### Results:
 *  Test MSE: 11.4481
@@ -88,9 +96,12 @@ Given that a borrower requests a high loan amount, has 36 payment terms (longer)
 
 ### Dirichlet multinomial regression model  
 #### Description:
-Parameters: Regularization parameter α (tested with values 0.1, 0.5, 1.0, 2.0, 5.0)
-Common Use Cases: Modeling with sparse features, preventing overfitting in credit scoring
-Formula: Similar to linear regression but with Dirichlet prior distributions on the coefficients
+- To address potential overfitting concerns, we explored Dirichlet Multinomial Regression with various regularization parameters.
+- Parameters: Regularization parameter α (tested with values 0.1, 0.5, 1.0, 2.0, 5.0), we found optimal performance at alpha = 5.0.
+- Advantage: The stronger regularization helped prevent our model from fitting to noise while maintaining predictive power.
+- Common Use Cases: Modeling with sparse features, preventing overfitting in credit scoring
+- Formula: Similar to linear regression but with Dirichlet prior distributions on the coefficients
+  
 #### Results: 
 * Best performance with α = 5.0
 * Test RMSE: 3.2325

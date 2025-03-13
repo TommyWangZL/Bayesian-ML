@@ -78,7 +78,7 @@ Given that a borrower requests a high loan amount, has 36 payment terms (longer)
 
 <img width="663" alt="Image" src="https://github.com/user-attachments/assets/78b69db4-ce8f-41c1-b741-03dbcf8db309" />
 
-### Bayesian linear regression model (more probabilistic approach7e64b4acba38)
+### Bayesian linear regression model (more probabilistic approach)
 #### Description:
 - Parameters: Incorporates prior distributions for model parameters, allowing us to quantify uncertainty in our predictions.
 - Common Use Cases: Credit risk modeling where uncertainty quantification is important

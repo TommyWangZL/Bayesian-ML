@@ -18,7 +18,7 @@ For this project, we utilize the loan approval prediction dataset, consisting of
 
 The test dataset maintains identical structure and distribution patterns to the training set, ensuring consistency for model development and evaluation.
 
-## 4. Exploratory Data Analysis 
+## 4. EDA + Preprocessing
 To ensure the reliability and accuracy of our predictive model for loan interest rates, we conducted an extensive exploratory data analysis and data cleaning process. The dataset consists of various borrower attributes, loan details, and credit history indicators, some of which required transformation, imputation, or removal due to inconsistencies, excessive missing values, or irrelevance to the prediction task.
 1) Data Structure
 The dataset contains multiple categorical and numerical features, each describing different aspects of a loan applicant’s profile. We started by summarizing the dataset, identifying missing values, unique value counts, and data types. Using metadata, we mapped each feature to its definition, helping us make informed decisions during cleaning and preprocessing.

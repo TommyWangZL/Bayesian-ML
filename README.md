@@ -155,9 +155,8 @@ The Bayesian linear regression model implemented in PyMC uses Markov Chain Monte
 <img width="624" alt="Image" src="https://github.com/user-attachments/assets/bcfd5088-9572-4dd5-a53d-14fd394ad3be" />
 
 #### Results:
-* Intercept (α): 2458
-* Regression Coefficients (β): 2137 to 3304
-* Standard Deviation (σ): 3965
+* RMSE = 5.2968
+* MAE = 4.2636
 * Effective Sample Size (ESS): Sufficient for reliable estimates.
 * Gelman-Rubin Statistic: Close to 1.000 for all parameters, confirming chain convergence.
 * The model’s predicted values closely match the observed data, indicating a good fit and reliable uncertainty quantification.

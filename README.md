@@ -19,6 +19,7 @@ We applied different imputation techniques to maintain data consistency and avoi
 4) Data Type Conversions
 Percentage and currency values such as X1 (Interest Rate), X4 (Loan Amount Requested), X5 (Loan Amount Funded), X6 (Investor-Funded Portion), and X30 (Revolving Utilization Rate) were converted into numerical format after removing non-numeric characters such as percent, dollar signs, and commas. Date variables such as X15 (Loan Issued Date) and X23 (Earliest Credit Line Opened) were transformed into datetime format for potential feature engineering related to time-based trends.
 ![Image](https://github.com/user-attachments/assets/97d313c9-7407-4667-9f95-6ab881ecdcf7)
+![Image](https://github.com/user-attachments/assets/6a6e63d9-8001-4a27-b276-c68d601cd8b7)
 
 ## Feature Engineering
 After cleaning the dataset, we performed feature engineering to enhance the predictive power of our model. This process involved encoding categorical variables, creating new interaction features, and standardizing numerical variables to improve model stability and performance.

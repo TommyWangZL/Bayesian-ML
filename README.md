@@ -8,6 +8,16 @@ Our analytical approach employs a comprehensive Bayesian framework to model the 
 The framework is supplemented with several comparative modeling approaches, including Bayesian linear regression, Dirichlet multinomial regression, and multinomial logistic regression.  For parameter estimation in complex scenarios, we employ Markov Chain Monte Carlo (MCMC) methods.  Model performance will be rigorously evaluated using multiple metrics including RMSE, MAE, MSE, and R-squared to ensure reliable default risk predictions that can effectively guide lending decisions and optimize the risk-return profile of the loan portfolio. 
 
 
+## Data Overview
+For this project, we utilize the loan approval prediction dataset, consisting of 161,620 rows and 20 columns in the training set, with a corresponding test set of 40,405 rows. This comprehensive dataset captures detailed financial information organized into several key attribute categories:
+
+* Loan Characteristics: Including Interest Rate and Loan Amount Requested
+* Applicant Information: Years Employed and Annual Income
+* Credit Profile: Credit Inquiries and Credit Balances
+* Financial Ratios: Loan-to-Income Ratio and other derived metrics
+
+The test dataset maintains identical structure and distribution patterns to the training set, ensuring consistency for model development and evaluation.
+
 ## Exploratory Data Analysis 
 To ensure the reliability and accuracy of our predictive model for loan interest rates, we conducted an extensive exploratory data analysis and data cleaning process. The dataset consists of various borrower attributes, loan details, and credit history indicators, some of which required transformation, imputation, or removal due to inconsistencies, excessive missing values, or irrelevance to the prediction task.
 1) Data Structure

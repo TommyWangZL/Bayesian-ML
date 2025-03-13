@@ -1,14 +1,14 @@
 # Bayesian-ML
 
-## Business statement
+## 1. Business statement
 Lending platforms connect borrowers seeking loans with investors willing to fund these loans, making the accurate prediction of interest rates crucial for both parties. Borrowers need fair rates that reflect their risk profile, while investors require appropriate returns to compensate for the risk they assume. The platform itself needs accurate interest rate models to maintain profitability, competitiveness, and regulatory compliance. In this project, we analyze lending data containing various borrower characteristics, loan attributes, and credit history metrics to build models that can accurately predict interest rates. Such predictions help lending platforms maintain a balanced marketplace where risk is appropriately priced, leading to sustainable business operations and customer satisfaction.
 
-## Methodology Introduction
+## 2. Methodology Introduction
 Our analytical approach employs a comprehensive Bayesian framework to model the dependencies among borrower variables and generate personalized risk classifications.  The methodology begins with exploratory data analysis to understand variable distributions and basic correlations between different loan and borrower attributes.  We then develop a Bayesian Network to model the complex interdependencies between borrower characteristics, followed by Maximum A Posteriori (MAP) estimation for risk classification with carefully considered prior assumptions.  To address borrower heterogeneity, we implement Hierarchical Models for personalized risk estimation based on borrower segments.
 The framework is supplemented with several comparative modeling approaches, including Bayesian linear regression, Dirichlet multinomial regression, and multinomial logistic regression.  For parameter estimation in complex scenarios, we employ Markov Chain Monte Carlo (MCMC) methods.  Model performance will be rigorously evaluated using multiple metrics including RMSE, MAE, MSE, and R-squared to ensure reliable default risk predictions that can effectively guide lending decisions and optimize the risk-return profile of the loan portfolio. 
 
 
-## Data Overview
+## 3. Data Overview
 For this project, we utilize the loan approval prediction dataset, consisting of 161,620 rows and 20 columns in the training set, with a corresponding test set of 40,405 rows. This comprehensive dataset captures detailed financial information organized into several key attribute categories:
 
 * Loan Characteristics: Including Interest Rate and Loan Amount Requested
@@ -18,7 +18,7 @@ For this project, we utilize the loan approval prediction dataset, consisting of
 
 The test dataset maintains identical structure and distribution patterns to the training set, ensuring consistency for model development and evaluation.
 
-## Exploratory Data Analysis 
+## 4. Exploratory Data Analysis 
 To ensure the reliability and accuracy of our predictive model for loan interest rates, we conducted an extensive exploratory data analysis and data cleaning process. The dataset consists of various borrower attributes, loan details, and credit history indicators, some of which required transformation, imputation, or removal due to inconsistencies, excessive missing values, or irrelevance to the prediction task.
 1) Data Structure
 The dataset contains multiple categorical and numerical features, each describing different aspects of a loan applicant’s profile. We started by summarizing the dataset, identifying missing values, unique value counts, and data types. Using metadata, we mapped each feature to its definition, helping us make informed decisions during cleaning and preprocessing.
@@ -31,7 +31,7 @@ Percentage and currency values such as X1 (Interest Rate), X4 (Loan Amount Reque
 ![Image](https://github.com/user-attachments/assets/97d313c9-7407-4667-9f95-6ab881ecdcf7)
 ![Image](https://github.com/user-attachments/assets/6a6e63d9-8001-4a27-b276-c68d601cd8b7)
 
-## Feature Engineering
+## 5. Feature Engineering
 After cleaning the dataset, we performed feature engineering to enhance the predictive power of our model. This process involved encoding categorical variables, creating new interaction features, and standardizing numerical variables to improve model stability and performance.
 1) Transforming Categorical Features
 Categorical variables were transformed using label encoding. For binary categorical features, we applied LabelEncoder, while multi-category variables were converted into numerical codes using the .astype('category').cat.codes method. This approach ensured compatibility with machine learning models that require numerical input.
@@ -44,7 +44,7 @@ Active Credit Line Ratio: This ratio measures the number of active credit lines 
 To ensure that numerical features contributed equally to the model, we applied standardization using StandardScaler. This transformation helps prevent features with larger magnitudes from dominating the learning process. We standardized all continuous numerical features while excluding categorical variables and the target variable (X1).
 <img width="610" alt="Image" src="https://github.com/user-attachments/assets/33c6b615-89d9-4524-b95f-d3334e31cd58" />
 
-## Bayesian Network Analysis
+## 6. Bayesian Network Analysis
 Our analysis of loan data using Bayesian Networks reveals key relationships that impact loan decisions. First, continuous variables are discretized into categorical bins to make them suitable for discrete Bayesian networks. Most variables are converted to binary "Low"/"High" categories using median splits, and interest rates are divided into three categories: "Low", "Medium", and "High". I implement the Hill Climb Search algorithm and the tree search algorithm to learn the Bayesian network. The network is visualized and conditional probability distributions (CPDs) are calculated for each node. BIC scores are calculated for both models. The tree model achieved a better BIC score than the hill climbing model. The Hill Climb model shows more complex relationships with more connections, while the Tree model has a simpler hierarchical structure.
 ![Image](https://github.com/user-attachments/assets/710667b3-979e-4298-be7b-a3ddd074e6f8)
 ![Image](https://github.com/user-attachments/assets/27d06ce3-eb53-4ec1-949f-33c1d03d0938)
@@ -57,8 +57,8 @@ Longer payment terms are strongly associated with higher interest rates.
 Given that a borrower requests a high loan amount, has 36 payment terms (longer), and a low annual income, there's a 65.22% probability they'll be offered a high interest rate. A significantly smaller probability (24.64%) for medium interest rate.Very low likelihood (10.14%) of receiving a low-interest rate, clearly indicating a riskier borrower profile.
 ![Image](https://github.com/user-attachments/assets/dd14d13c-f99f-4003-9d70-50af24930ba5)
 
-## Model
-### Linear regression model (baseline model)
+## 7. Model
+### 7.1 Linear regression model (baseline model)
 #### Description: 
 - Parameters: Uses standard OLS (Ordinary Least Squares) estimation
 - Common Use Cases: Baseline predictive model for interest rate prediction in loan analysis, widely used for its simplicity and interpretability
@@ -78,7 +78,7 @@ Given that a borrower requests a high loan amount, has 36 payment terms (longer)
 
 <img width="663" alt="Image" src="https://github.com/user-attachments/assets/78b69db4-ce8f-41c1-b741-03dbcf8db309" />
 
-### Bayesian linear regression model (more probabilistic approach)
+### 7.2 Bayesian linear regression model (more probabilistic approach)
 #### Description:
 - Parameters: Incorporates prior distributions for model parameters, allowing us to quantify uncertainty in our predictions.
 - Common Use Cases: Credit risk modeling where uncertainty quantification is important
@@ -94,7 +94,7 @@ Given that a borrower requests a high loan amount, has 36 payment terms (longer)
 *  Feature Importance: Number_of_Payments (0.42), Revolving_Utilization_Rate (0.41), Credit_Inquiries_6M (0.23)
   
 
-### Dirichlet multinomial regression model  
+### 7.3 Dirichlet multinomial regression model  
 #### Description:
 - To address potential overfitting concerns, we explored Dirichlet Multinomial Regression with various regularization parameters.
 - Parameters: Regularization parameter α (tested with values 0.1, 0.5, 1.0, 2.0, 5.0), we found optimal performance at alpha = 5.0.
@@ -109,7 +109,7 @@ Given that a borrower requests a high loan amount, has 36 payment terms (longer)
 * Test MAE: 2.5867
 * Key Features: Number_of_Payments, Revolving_Utilization_Rate, Credit_Inquiries_6M
 
-### Maximum A Posteriori (MAP) Bayesian Ridge Regression
+### 7.4 Maximum A Posteriori (MAP) Bayesian Ridge Regression
 
 #### Description
 - **Parameters**: Uses Bayesian priors for regression coefficients, incorporating prior knowledge into parameter estimation.
@@ -146,7 +146,7 @@ R² Score (Predictive Accuracy): 0.8421
   <img width="545" alt="Image" src="https://github.com/user-attachments/assets/2d92891f-a359-42e9-84c7-418d58b45c5e" />
 
 
-### Hierarchical Bayesian Model  
+### 7.5 Hierarchical Bayesian Model  
 #### Description:  
 Parameters: Uses hierarchical priors to model dependencies within categorical variables and normal priors for numerical predictors  
 Common Use Cases: Loan risk assessment, interest rate prediction, and modeling structured dependencies in financial data  
@@ -168,7 +168,7 @@ P(β|X, y) ∝ P(y|X, β) × P(β) × P(θ)
   <img width="545" alt="Image" src="https://github.com/user-attachments/assets/ce7dcf7e-3664-4f56-b9fc-a259797c6cfc" />
   <img width="545" alt="Image" src="https://github.com/user-attachments/assets/1f8c72aa-1859-439b-b93e-aa18dad05162" />
 
-### MCMC Model
+### 7.6 MCMC Model
 #### Description:
 The Bayesian linear regression model implemented in PyMC uses Markov Chain Monte Carlo (MCMC) sampling to estimate the relationship between predictor variables and the target variable (interest rate). The model assumes a probabilistic framework where parameters are treated as distributions rather than fixed values.
 #### Formula: 
@@ -185,7 +185,7 @@ The Bayesian linear regression model implemented in PyMC uses Markov Chain Monte
 * The model’s predicted values closely match the observed data, indicating a good fit and reliable uncertainty quantification.
 
 
-## Model Comparison
+## 8. Model Comparison
 |     | LR    | Bayesian LR | Dirichlet-regularized models with alpha = 5.0 | RF     | XGBOOST | MCMC   | Hierarchical Bayesian Model | MAP   |
 |-----|-------|------------|-----------------------------------------------|--------|---------|--------|-----------------------------|-------|
 | RMSE | 3.2312 | 3.3836     | 3.2325                                      | 3.0135 | 2.9171  | 5.2968 | 6.4487                      | 1.7492 |
@@ -195,7 +195,7 @@ The MAP model is the most effective, achieving the lowest prediction errors. Tra
 MAP performs best because it balances data likelihood with prior knowledge, preventing overfitting and improving generalization. Its Bayesian regularization reduces the impact of noise and outliers, making predictions more stable. By optimizing for the most probable parameters, it captures data patterns effectively while maintaining a balance between bias and variance, leading to superior accuracy.
 
 
-## Conclusion
+## 9. Conclusion
 
 In this study, we explored multiple predictive modeling approaches to estimate loan interest rates, with a focus on Bayesian methods and hierarchical modeling techniques. Our analysis incorporated **Maximum A Posteriori (MAP) Bayesian Ridge Regression**, **Bayesian Linear Regression**, **Hierarchical Bayesian Models**, and **Markov Chain Monte Carlo (MCMC)-based Bayesian inference**, alongside traditional models like **Linear Regression** and **Dirichlet-regularized regression**.
 
